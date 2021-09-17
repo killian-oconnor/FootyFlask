@@ -1,0 +1,90 @@
+
+
+.img-thumbnailglow {
+  padding: 0.25rem;
+  background-color: transparent;
+  /* border: 1px solid #dee2e6; */
+  /* border-radius: 0.25rem; */
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 0.75rem rgb(178, 219, 252));
+  margin: auto;
+  display: block;
+  }
+  
+.img-thumbnailglow2 {
+    padding: 0.25rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px #f0f, /* middle magenta */
+    0 0 140px 90px #0ff; /* outer cyan */
+  }
+
+  .logo-1 {
+    color: white;
+    opacity: 0.87;
+    font-size: 22px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+  /*------------------------------------*/
+/*------ Basic Underline Styles ------*/
+/*------------------------------------*/
+/* from https://speckyboy.com/underline-text-effects-css/ */
+
+.normal-underline,
+.custom-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.normal-underline,
+.normal-underline:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+.custom-underline,
+.custom-underline:hover,
+.custom-underline:focus,
+.custom-underline:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.custom-underline::after {
+  content: "";
+  position: absolute;
+}
+
+/*--- Green Box (box-c) ---*/
+.box-c .custom-underline::after {
+  top: 65%;
+  height: 2px !important;
+  width: 40%;
+  left: 30%;
+  background-color: rgba(255, 255, 255, 0.6);
+    transition: 0.4s ease-out all .1s;
+}
+
+.box-c:hover .custom-underline::after {
+  width: 90%;
+  left: 5%;
+    transition: 0.5s ease all;
+}
+

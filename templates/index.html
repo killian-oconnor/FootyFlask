@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>FootyFlask</title>
+
+<!-- Roboto font from google -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet"> 
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container" style="text-align: center;">
+    <div class="row">
+      <div class="col">
+        <h2>Upcoming Fixtures</h2>
+      </div>
+        <div class="row">
+            <div class="col">
+                <!-- form to allow user select & submit a competition to search -->
+                <form action="/" method="post">
+                    <select class="btn btn-secondary dropdown-toggle" id="CompPick" name="CompPick">
+                        <option selected>Choose...</option>
+                        {% for competition in competitions %}
+                            <option value="{{ competition['name'] }}">{{ competition['name'] }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" id="searchCompBtn" name = "searchCompBtn" class="btn btn-dark">Search Competition</button>
+                </form>
+            </div>
+            <div class="col">
+                <!-- form to allow a user to select a team to search fixtures for -->
+                <form action="/" method="post">
+                    <select class="btn btn-secondary dropdown-toggle" id="TeamPick" name="TeamPick" style="text-align:center">
+                        <option selected>Choose...</option>
+                        {% for team in teams %}
+                            <option value="{{ team['name'] }}">{{ team['name'] }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" id="searchTeamBtn" name = "searchTeamBtn" class="btn btn-dark">Search Team</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+        &nbsp; 
+
+
+        <!-- {% for competition in competitions %}   "https://crests.football-data.org/18.svg"
+            <p>{{ competition['name'] }}</p>
+        {% endfor %} -->
+        
+        
+
+        <!-- Container to hold team fixtures displayed for team selected -->
+        <div class="container">
+            {% for match in matches %}
+                <div class="row">
+                    <p class="logo-1" style="text-align: center">{{ match['homeTeam']['name'] + ' vs ' + match['awayTeam']['name'] }}</p>
+                    <p class="logo-1" style="text-align: center">{{ match['utcDate'] }}</p>
+    
+                    <div class="col">
+                      <a href="https://www.google.com/search?q={{ match['homeTeam']['name'] }}"><img src="{{ match['homeTeam']['crestUrl'] }}" class="img-thumbnailglow" alt="..." style="max-width:100px; max-height:100px"></a>
+                      {% if match['score']['fullTime']['homeTeam'] != None %}
+                        <h2 style="text-align: center">{{ match['score']['fullTime']['homeTeam'] }}</h2>
+                      {% endif %}
+                    </div>
+                    <div class="col">
+                        <img src="{{ url_for('static',filename='images/496618.png') }}" class="img-thumbnailglow" alt="..." style="max-width:70px;">
+                    </div>
+                                     
+                    <div class="col">
+                      <a href="https://www.google.com/search?q={{ match['awayTeam']['name'] }}"><img src="{{ match['awayTeam']['crestUrl'] }}" class="img-thumbnailglow" alt="..." style="max-width:100px; max-height:100px"></a>
+                      {% if match['score']['fullTime']['awayTeam'] != None %}
+                        <h2 style="text-align: center">{{ match['score']['fullTime']['awayTeam'] }}</h2>
+                      {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="box-c" style="text-align: center;">
+                        <a href="#" class="custom-underline" style = "width: 300px; margin-bottom: 50px;"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        
+
+        <div class="container">
+            <div class="row">
+                {% for team in compTeams %}
+                        <div class="col">
+                            <p style="text-align: center;">{{ team['name'] }}</p>
+                            <img src="https://crests.football-data.org/{{ team['id']|string }}.svg" class="img-thumbnailglow center" alt="..." style="max-width:100px; max-height:100px; min-width:100px;">
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+{% endblock %}

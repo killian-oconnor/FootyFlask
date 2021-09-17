@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>About FootyFlask</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>Footyflask is an online web app I've created for my final project in CS50. It's based on an idea I've had for a while to create a slick, dark mode, easily navigable and accessible web app to keep track of upcoming sports fixtures. Or to put it more simply, provide a quick answer for "are there any matches on today?"</p>
+<p> Going forward as a personal project I'll be looking to add in more sports and teams, and implement an option for a calendar view to offer a nice visualisation of matches that might take the users interest over a longer timeframe than the current list view implies</p>
+
+<p>My primary focus was on the look and feel of the website, with a strong emphasis on using large colourful logos for users to quickly identify teams when skimming the page. I also tried to place an emphasis on designing the pages to have a minimalist look to encourage easy skimming - the site is envisioned for users to visit frequently, but not have to spend much time on the site to get the information they want</p>
+
+<p>The next update to the site will likely include the creation of a SQLite database to allow users create a profile and save their favourite teams to view their fixtures immediately on login</p>
+
+<p>The technologies used for this website are: </p>
+    
+<p>1. Flask for backend of the site, using python and Jinja to dynamically generate HTML and collect API data to display the information requested by the user</p>
+<p>2. HTML and CSS to display the information as envisioned. These are primarily responsible for the minimalist dark mode look and feel. Bootstrap 5 components are heavily used throughout</p>
+<p>3. Javascript to add nice effects to make the pages seem more responsive and modern to users. This is a language I'd like to develop my skills further in as it's used so widely and is so versatile</p>
+
+<p>Finally, a big thanks to the creators of the football-data.org API - without their data this site wouldn't be possible. And also a major thanks to the guys at Harvard who run the CS50 course - it's really helped to re-ignite my passion for software development and the art of computer science, and any success I hope to have in a future developer career will be in no small part a result of the excellent teachings and principles I've recieved through their efforts!</p>
+{% endblock %}
