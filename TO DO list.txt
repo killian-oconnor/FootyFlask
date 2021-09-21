@@ -1,5 +1,0 @@
-TO DO list
-
-1. Add local database to store data - read from football-data json but provide search results via sql from local data
-2. add in better team selection. select comp first, then teams from selected comp
-
